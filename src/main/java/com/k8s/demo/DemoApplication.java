@@ -22,6 +22,7 @@ public class DemoApplication {
 		@RequestMapping(value = "/hello", method = RequestMethod.GET)
 		@ResponseBody
 		public String hello() {
+			System.out.println("*********123*********");
 			return "Hello, Kubernetes!";
 		}
 
