@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8sdemo
+  labels:
+    app: k8sdemo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: k8sdemo
+  template:
+    metadata:
+      labels:
+        app: k8sdemo
+    spec:
+      containers:
+        - name: k8s
+          image: registry.cn-hangzhou.aliyuncs.com/wh_lykj/k8s:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+      imagePullSecrets:
+        - name: regsecret

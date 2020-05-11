@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Ingress
+metadata:
+  name: k8s-ingress
+spec:
+  tls:
+  - hosts:
+    - gzt.linyantech.com
+    secretName: ingress-secret
+  rules:
+  - host: gzt.linyantech.com
+    http:
+      paths:
+      - path: /k8s
+        backend:
+          serviceName: k8s-svc
+          servicePort: 443
